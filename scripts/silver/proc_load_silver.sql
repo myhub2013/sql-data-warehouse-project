@@ -55,8 +55,9 @@ BEGIN
 				*,
 				ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date DESC) ranking
 			FROM bronze.crm_cust_info
-			)t
-		  WHERE ranking = 1
+			WHERE cst_id IS NOT NULL
+		)t
+		WHERE ranking = 1
 
 		SET @end_time = GETDATE();
 		PRINT 'LOAD TIME: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
