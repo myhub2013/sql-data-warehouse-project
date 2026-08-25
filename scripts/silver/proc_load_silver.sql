@@ -43,11 +43,11 @@ BEGIN
 			TRIM(cst_lastname) AS cst_lastname,
 			CASE WHEN UPPER(TRIM(cst_marital_status)) = 'M' THEN 'Maried'
 				 WHEN UPPER(TRIM(cst_marital_status)) = 'S' THEN 'Single'
-				 ELSE 'N/A'
+				 ELSE 'n/a'
 			END cst_marital_status,
 			CASE WHEN UPPER(TRIM(cst_gndr)) = 'M' THEN 'Male'
 				 WHEN UPPER(TRIM(cst_gndr)) = 'F' THEN 'Female'
-				 ELSE 'N/A'
+				 ELSE 'n/a'
 			END cst_gndr,
 			cst_create_date
 		FROM (
@@ -101,7 +101,7 @@ BEGIN
 				WHEN 'S' THEN 'Other Sales'
 				WHEN 'M' THEN 'Mountain'
 				WHEN 'T' THEN 'Touring'
-				ELSE 'N/A'
+				ELSE 'n/a'
 			END prd_line, -- Map codes to descriptive values
 			CAST(prd_start_dt AS DATE) AS prd_start_dt,
 			-- Calculate end date as one day before next start date
